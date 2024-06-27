@@ -7,6 +7,7 @@ from pinecone import Pinecone
 from dotenv import load_dotenv
 from src.exception import CustomException
 from .common import read_yml
+from pathlib import Path
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -18,14 +19,13 @@ PC_INDEX = os.getenv("PINECONE_INDEX")
 pc_client = Pinecone(api_key=PC_KEY)
 
 
-params = read_yml(r'config\params.yml')
+params = read_yml(Path('config\params.yml'))
 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 embedding_model = params['embedding_model']['model']
 tokenizer = AutoTokenizer.from_pretrained(embedding_model)
 model = AutoModel.from_pretrained(embedding_model, trust_remote_code=True).to(device)
-logging.info("Embedding model loaded successfully!")
 
 
 def mean_pooling(model_output, attention_mask):
