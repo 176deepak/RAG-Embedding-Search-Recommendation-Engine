@@ -19,4 +19,5 @@ uvicorn[standard]
 # streamlit
 # gradio
 # flask
+# Flask-Cors
 # -e .

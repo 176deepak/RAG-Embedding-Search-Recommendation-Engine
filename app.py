@@ -8,6 +8,7 @@ from fastapi import (
     HTTPException, 
     Depends
     )
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security.api_key import APIKeyHeader
 from src.pipeline.inference_pipeline import InferenceEpsPipeline
 # ---------------------------- ::END:: --------------------------------------
@@ -24,6 +25,16 @@ app = FastAPI()
 inference_pls = InferenceEpsPipeline()
 api_key_header = APIKeyHeader(name="Authorization", auto_error=False)
 # ---------------------------- ::END:: --------------------------------------
+
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 
 # ------------------------------ ::FUNCTION:: -------------------------------
