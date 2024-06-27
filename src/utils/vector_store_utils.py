@@ -6,7 +6,7 @@ from transformers import AutoModel, AutoTokenizer
 from pinecone import Pinecone
 from dotenv import load_dotenv
 from src.exception import CustomException
-from .common import read_yml, logging
+from .common import read_yml
 
 import warnings
 warnings.filterwarnings('ignore')
