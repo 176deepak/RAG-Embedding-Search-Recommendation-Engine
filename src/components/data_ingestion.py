@@ -2,7 +2,6 @@ import os
 import pandas as pd
 from src.entity import DataIngestionConfig
 from src.utils.data_ingestion_utils import *
-from src.logger import logging
 
 
 class DataIngestion:
@@ -20,6 +19,5 @@ class DataIngestion:
             records = dataloader(db=self.config.cluster_db, collection=self.config.prod_collection, query={'category':f"{category}"}, proj={'objectID':1, 'title':1, "category":1})
             
             pd.DataFrame(records).to_csv(os.path.join(self.config.ingestion_dir, f"{category}.csv"), index=False)
-        logging.info("Data Ingest successfully!")
         
         return self.config.ingestion_dir
