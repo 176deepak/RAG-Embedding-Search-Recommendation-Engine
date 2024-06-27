@@ -1,0 +1,22 @@
+python-dotenv
+requests
+notebook
+numpy
+pandas
+# seaborn
+# matplotlib
+# plotly
+torch
+transformers
+pymongo[srv]
+dnspython
+tqdm
+# algoliasearch
+pinecone-client
+pyyaml
+fastapi
+uvicorn[standard]
+# streamlit
+# gradio
+# flask
+# -e .

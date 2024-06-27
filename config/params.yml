@@ -1,0 +1,7 @@
+embedding_model:
+    model: jinaai/jina-embeddings-v2-base-en
+    params:
+        max_length: 1024
+        p: 2
+        dim: 1
+        BATCH_SIZE: 64
