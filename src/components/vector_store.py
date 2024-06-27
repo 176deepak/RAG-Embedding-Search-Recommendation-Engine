@@ -39,6 +39,4 @@ class VectorStore:
 
                     self.pc_index.upsert(vectors=pc_records, namespace=namespace)
                 except Exception as e: 
-                    logging.info(f"{e}")
                     raise CustomException(e, sys)
-            logging.info(f"file:{file} vector inserted successfully!")            
