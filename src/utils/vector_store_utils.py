@@ -19,7 +19,7 @@ PC_INDEX = os.getenv("PINECONE_INDEX")
 pc_client = Pinecone(api_key=PC_KEY)
 
 
-params = read_yml(Path('config\params.yml'))
+params = read_yml(Path('config/params.yml'))
 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
