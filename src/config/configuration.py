@@ -6,7 +6,7 @@ from src.utils.common import *
 class ConfigurationManager:
     def __init__(self, config_filepath=CONFIG_YAML_FILE):
         self.configurations = read_yml(config_filepath)
-        make_dirs([self.configurations['artifacts_dir']])    
+        # make_dirs([self.configurations['artifacts_dir']])    
         
     
     def get_data_ingestion_config(self):
